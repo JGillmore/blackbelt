@@ -1,0 +1,19 @@
+<h1>Welcome, <%=session[:name].capitalize%></h1>
+<a href=/user/logout>Log Out</a><br>
+<a href=/songs/index>Dashboard</a><br>
+
+<%=@user.name.capitalize%>'s playlist<br>
+<table>
+  <thead>
+    <th>Artist</th>
+    <th>Song</th>
+    <th>how many times they have added this song to thier list</th>
+  </thead>
+  <% @user.playlists.each do |playlist| %>
+    <tr>
+      <td><%=playlist.song.author.capitalize%></td>
+      <td><%=playlist.song.title.capitalize%></td>
+      <td><%=playlist.count%></td>
+    </tr>
+  <%end%>
+</table>
